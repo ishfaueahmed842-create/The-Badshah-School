@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard | SMPS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-page="admin">
+  <div class="dash">
+    <aside class="sidebar">
+      <div class="brand" style="margin-bottom:18px;color:#fff">
+        <div class="logo">SM</div>
+        <h1 style="color:#fff;font-size:15px">Admin Dashboard<span style="color:#9fb4d9">SMPS</span></h1>
+      </div>
+      <button class="linkish active" data-panel="overview" onclick="showPanel('overview')">Overview</button>
+      <button class="linkish" data-panel="addStudent" onclick="showPanel('addStudent')">Add Student</button>
+      <button class="linkish" data-panel="manageStudents" onclick="showPanel('manageStudents')">Manage Students</button>
+      <button class="linkish" data-panel="addTeacher" onclick="showPanel('addTeacher')">Add Teacher</button>
+      <button class="linkish" data-panel="manageTeachers" onclick="showPanel('manageTeachers')">Manage Teachers</button>
+      <button class="linkish" data-panel="manageAdmissions" onclick="showPanel('manageAdmissions')">Manage Admissions</button>
+      <button class="linkish" data-panel="notices" onclick="showPanel('notices')">Add/Edit Notices</button>
+      <button class="linkish" data-panel="gallery" onclick="showPanel('gallery')">Manage Gallery</button>
+      <button class="linkish" data-panel="messages" onclick="showPanel('messages')">Contact Messages</button>
+      <a href="index.html">View website</a>
+      <button class="linkish" onclick="logout('admin')">Logout</button>
+    </aside>
+    <main class="main-dash">
+      <section class="panel" id="overview">
+        <h3>Overview</h3>
+        <div class="kpis" id="kpis"></div>
+        <p>Use the menu to add records, approve admissions, publish notices, and read contact messages. Data is stored in this browser (localStorage) for the demo.</p>
+      </section>
+
+      <section class="panel hidden" id="addStudent">
+        <h3>Add Student</h3>
+        <form class="card" onsubmit="addStudent(event)" style="max-width:560px">
+          <label>Student ID</label><input name="sid" required placeholder="S1003">
+          <label>Name</label><input name="sname" required>
+          <label>Class</label><input name="sclass" required placeholder="8-A">
+          <label>Email</label><input name="semail" type="email" required>
+          <label>Phone</label><input name="sphone">
+          <label>Password</label><input name="spass" placeholder="default student123">
+          <button class="btn btn-primary" type="submit">Save student</button>
+        </form>
+      </section>
+
+      <section class="panel hidden" id="manageStudents">
+        <h3>Manage Students</h3>
+        <div style="overflow:auto"><table id="studentsTable"></table></div>
+      </section>
+
+      <section class="panel hidden" id="addTeacher">
+        <h3>Add Teacher</h3>
+        <form class="card" onsubmit="addTeacher(event)" style="max-width:560px">
+          <label>Teacher ID</label><input name="tid" required placeholder="T05">
+          <label>Name</label><input name="tname" required>
+          <label>Subject</label><input name="tsubject" required>
+          <label>Classes</label><input name="tclasses" required placeholder="6-8">
+          <label>Email</label><input name="temail" type="email">
+          <button class="btn btn-primary" type="submit">Save teacher</button>
+        </form>
+      </section>
+
+      <section class="panel hidden" id="manageTeachers">
+        <h3>Manage Teachers</h3>
+        <div style="overflow:auto"><table id="teachersTable"></table></div>
+      </section>
+
+      <section class="panel hidden" id="manageAdmissions">
+        <h3>Manage Admissions</h3>
+        <div style="overflow:auto"><table id="admissionsTable"></table></div>
+      </section>
+
+      <section class="panel hidden" id="notices">
+        <h3>Add / Edit Notices</h3>
+        <form class="card" onsubmit="addNotice(event)" style="max-width:560px;margin-bottom:16px">
+          <label>Title</label><input name="ntitle" required>
+          <label>Date</label><input name="ndate" type="date" required>
+          <label>Details</label><textarea name="nbody" required></textarea>
+          <button class="btn btn-gold" type="submit">Publish notice</button>
+        </form>
+        <div id="noticesManage" class="grid-3"></div>
+      </section>
+
+      <section class="panel hidden" id="gallery">
+        <h3>Manage Gallery</h3>
+        <form class="card" onsubmit="addGallery(event)" style="max-width:420px;margin-bottom:16px">
+          <label>Caption / title</label>
+          <input name="gtitle" required>
+          <button class="btn btn-primary" type="submit">Add item</button>
+        </form>
+        <div id="galleryManage"></div>
+      </section>
+
+      <section class="panel hidden" id="messages">
+        <h3>Contact Messages</h3>
+        <div style="overflow:auto"><table id="messagesTable"></table></div>
+      </section>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

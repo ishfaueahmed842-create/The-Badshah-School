@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login | SMPS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="auth-wrap">
+    <form class="auth-card" onsubmit="adminLogin(event)">
+      <div class="brand" style="margin-bottom:16px">
+        <div class="logo">SM</div>
+        <h1>Admin Login<span>School management portal</span></h1>
+      </div>
+      <p style="color:#64748b;margin-bottom:12px">Demo: <strong>admin</strong> / <strong>admin123</strong></p>
+      <label>Username</label>
+      <input name="username" required>
+      <label>Password</label>
+      <input name="password" type="password" required>
+      <button class="btn btn-gold" type="submit">Enter dashboard</button>
+      <a class="btn btn-outline" href="index.html">Back to website</a>
+    </form>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
